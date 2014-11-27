@@ -1,8 +1,8 @@
 require 'faraday'
 
-# @private
+# @private *.-gpg
 module FaradayMiddleware
-  # @private
+  # @private *.gpg
   class InstagramOAuth2 < Faraday::Middleware
     def call(env)
 
@@ -17,7 +17,7 @@ module FaradayMiddleware
           env[:url].query = Faraday::Utils.build_query(query.merge(:access_token => @access_token))
           env[:request_headers] = env[:request_headers].merge('Authorization' => "Token token=\"#{@access_token}\"")
         elsif @client_id
-          env[:url].query = Faraday::Utils.build_query(query.merge(:client_id => @client_id))
+          env[:url].query = Faraday::Utils.build_query(query.merge(:client_id => @client_id))https://github.com/GabrielDuque/instagram-ruby-gem/settings
         end
       else
         if @access_token and not env[:body] && env[:body][:client_secret]
